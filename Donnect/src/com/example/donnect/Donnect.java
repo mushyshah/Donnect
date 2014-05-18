@@ -8,11 +8,21 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.os.Build;
+import java.util.UUID;
+import android.provider.MediaStore;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.view.View.OnClickListener;
+import android.widget.Toast;
 
-public class Donnect extends ActionBarActivity {
-
+public class Donnect extends ActionBarActivity implements OnClickListener{
+	
+	
+	private DrawingView drawView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,6 +32,9 @@ public class Donnect extends ActionBarActivity {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+		drawView = (DrawingView)findViewById(R.id.drawingView1);
+		//drawView.setColor();
+		
 	}
 
 	@Override
@@ -59,6 +72,12 @@ public class Donnect extends ActionBarActivity {
 					container, false);
 			return rootView;
 		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
