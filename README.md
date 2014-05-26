@@ -1,4 +1,4 @@
 Donnect
 =======
 
-Making new app game based on connected all the dots on the screen. Android!
+Android app development!! Making a game based on connected all the dots on screen in the specified order.
