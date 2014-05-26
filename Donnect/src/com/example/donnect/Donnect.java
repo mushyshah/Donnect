@@ -1,37 +1,26 @@
 package com.example.donnect;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.os.Build;
-import java.util.UUID;
-import android.provider.MediaStore;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.view.View.OnClickListener;
-import android.widget.Toast;
 
-public class Donnect extends ActionBarActivity implements OnClickListener{
+
+public class Donnect extends Activity {
+	
 	
 	
 	private DrawingView drawView;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_donnect);
-
-		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+		setContentView(R.layout.fragment_donnect);
+		
 		drawView = (DrawingView)findViewById(R.id.drawingView1);
 		//drawView.setColor();
 		
@@ -72,12 +61,6 @@ public class Donnect extends ActionBarActivity implements OnClickListener{
 					container, false);
 			return rootView;
 		}
-	}
-
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
