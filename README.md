@@ -1,4 +1,4 @@
 Donnect
 =======
 
-Android app development!! Making a game based on connected all the dots on screen in the specified order.
+Check out http://mushyshah.github.io/Donnect/ for details and stuff & thangs
