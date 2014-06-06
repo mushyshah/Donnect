@@ -1,5 +1,8 @@
 package com.example.donnect;
 
+
+import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
+
 import android.support.v4.app.Fragment;
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,24 +11,69 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
 
 public class Donnect extends Activity {
 	
-	
-	
+	protected Cocos2dxGLSurfaceView _glSurfaceView;
 	private DrawingView drawView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fragment_donnect);
+		//setContentView(R.layout.fragment_donnect);
+		  requestWindowFeature(Window.FEATURE_NO_TITLE);
+		  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		  getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		 
+		  _glSurfaceView = new Cocos2dxGLSurfaceView(this);
+	 
+	    setContentView(_glSurfaceView);
 		
 		drawView = (DrawingView)findViewById(R.id.drawingView1);
 		//drawView.setColor();
 		
 	}
 
+	@Override
+	public void onStart()
+	{
+	    super.onStart();
+	 
+	    CCDirector.sharedDirector().attachInView(_glSurfaceView);
+	 
+	    CCDirector.sharedDirector().setDisplayFPS(true);
+	 
+	    CCDirector.sharedDirector().setAnimationInterval(1.0f / 60.0f);
+	}
+	
+	@Override
+	public void onPause()
+	{
+	    super.onPause();
+	 
+	    CCDirector.sharedDirector().pause();
+	}
+	 
+	@Override
+	public void onResume()
+	{
+	    super.onResume();
+	 
+	    CCDirector.sharedDirector().resume();
+	}
+	 
+	@Override
+	public void onStop()
+	{
+	    super.onStop();
+	 
+	    CCDirector.sharedDirector().end();
+	}
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
